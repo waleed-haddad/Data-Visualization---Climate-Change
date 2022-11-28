@@ -7,7 +7,7 @@ public class MapListener implements EventListener{
 
     /**
      * Constructor for MapListener
-     * @param subject
+     * @param subject : MapView object as MapListeners can only be used with MapView
      */
     public MapListener(MapView subject){
         observerState = false;
@@ -17,7 +17,7 @@ public class MapListener implements EventListener{
 
     /**
      * Updates the MapView subject according to state
-     * @param state
+     * @param state : boolean value of the listener
      */
     public void update(boolean state){
         observerState = state;

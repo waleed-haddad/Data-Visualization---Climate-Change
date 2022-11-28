@@ -14,7 +14,7 @@ public abstract class Event {
 
     /**
      * Adding EventListener to eventListeners list
-     * @param e
+     * @param e : EventListener object
      */
     public void register(EventListener e){
         eventListeners.add(e);
@@ -22,7 +22,7 @@ public abstract class Event {
 
     /**
      * Removing EventListener from eventListeners list
-     * @param e
+     * @param e : EventListener object
      */
     public void unregister(EventListener e){
         eventListeners.remove(e);
@@ -30,7 +30,7 @@ public abstract class Event {
 
     /**
      *
-     * @param val
+     * @param val : boolean value to set observable state
      */
     public void setState(boolean val){
         observableState = val;
@@ -46,7 +46,7 @@ public abstract class Event {
 
     /**
      * Notify Observer to act accordingly depending on Observable State
-     * @param e
+     * @param e : EventListener object
      */
     public void notifyObserver(EventListener e){
         e.update(observableState);

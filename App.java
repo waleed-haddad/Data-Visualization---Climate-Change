@@ -26,10 +26,9 @@ public class App extends Application {
 
     /**
      *
-     * @param stage
      * @return Node representing MapView in the stage
      */
-    public Node createView(Stage stage) {
+    public Node createView() {
         map.setState(true);
         MapListener mapListener = new MapListener(map);
         map.register(mapListener);
@@ -43,13 +42,13 @@ public class App extends Application {
 
     /**
      * Function to Start the Visualizer
-     * @param primaryStage
+     * @param primaryStage : Stage object for tbe view view
      */
     public void start(Stage primaryStage) {
 
         primaryStage.setTitle("Climate Change Data Visualizer");
 
-        Scene scene = new Scene((Parent) buildView(primaryStage), 800, 800);
+        Scene scene = new Scene((Parent) buildView(), 800, 800);
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -58,13 +57,12 @@ public class App extends Application {
 
     /**
      * General Function for building the view
-     * @param stage
      * @return Node for the final view
      */
-    public Node buildView(Stage stage) {
+    public Node buildView() {
         SplitPane splitPane = new SplitPane();
 
-        final Node samplePanel = createView(stage);
+        final Node samplePanel = createView();
 
         if (samplePanel != null) {
             splitPane.getItems().add(samplePanel);
