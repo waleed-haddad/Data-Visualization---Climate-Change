@@ -1,3 +1,5 @@
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
 public class MapListener implements EventListener{
@@ -25,7 +27,18 @@ public class MapListener implements EventListener{
             worldMapView.setCountryViewFactory(country -> {
                 WorldMapView.CountryView view = new WorldMapView.CountryView(country);
                 view.setOnMouseClicked(evt -> {
-                    view.setFill(Color.BLUE);
+                    if(view.getFill() == Color.BLUE){
+                        view.setFill(Color.LIGHTGREEN);
+                    }else{
+                        view.setFill(Color.BLUE);
+                        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(new Label(view.getCountry().getLocale().getDisplayCountry()));
+                    }
+                });
+                view.setOnMouseEntered(evt -> {
+                    view.setOpacity(0.5);
+                });
+                view.setOnMouseExited(evt -> {
+                    view.setOpacity(1);
                 });
                 return view;
             });

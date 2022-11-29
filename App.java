@@ -15,6 +15,7 @@ import org.controlsfx.control.WorldMapView;
 public class App extends Application {
     MapView map = new MapView();
     WorldMapView worldMapView = map.worldMapView;
+    SplitPane splitPane = map.splitPane;
 
     /**
      * Main method to launch the application
@@ -42,7 +43,7 @@ public class App extends Application {
 
     /**
      * Function to Start the Visualizer
-     * @param primaryStage : Stage object for tbe view view
+     * @param primaryStage : Stage object for tbe view
      */
     public void start(Stage primaryStage) {
 
@@ -60,13 +61,13 @@ public class App extends Application {
      * @return Node for the final view
      */
     public Node buildView() {
-        SplitPane splitPane = new SplitPane();
 
         final Node samplePanel = createView();
 
         if (samplePanel != null) {
             splitPane.getItems().add(samplePanel);
         }
+
 
         return splitPane;
     }
