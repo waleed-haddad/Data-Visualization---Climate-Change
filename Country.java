@@ -69,14 +69,24 @@ public class Country{
         return result;
     }
 
+    /**
+     * Get the country's CO2 Emissions.
+     * @return the value, in double, of the country's CO2 Emissions.
+     */
     public double getCO2_Emission() {
         return this.CO2_Emission;
     }
-
+    /**
+     * Get the country's name.
+     * @return the value, in String representation, of the country's name.
+     */
     public String getName() {
         return Name;
     }
-
+    /**
+     * Get the country's respective continent.
+     * @return the value, in String representation, of the country's respective continent.
+     */
     public String getContinent() {
         return Continent;
     }
