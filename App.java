@@ -14,8 +14,8 @@ import org.controlsfx.control.WorldMapView;
 
 public class App extends Application {
     MapView map = new MapView();
-    WorldMapView worldMapView = map.worldMapView;
-    SplitPane splitPane = map.splitPane;
+    WorldMapView worldMapView;
+    SplitPane splitPane;
 
     /**
      * Main method to launch the application
@@ -30,6 +30,9 @@ public class App extends Application {
      * @return Node representing MapView in the stage
      */
     public Node createView() {
+        map.initUIComponents();
+        worldMapView = map.worldMapView;
+        splitPane = map.splitPane;
         map.setState(true);
         MapListener mapListener = new MapListener(map);
         map.register(mapListener);
