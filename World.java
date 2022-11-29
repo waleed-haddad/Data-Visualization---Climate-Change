@@ -1,4 +1,4 @@
-package src.EmissionHandler;
+package src;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -26,6 +26,10 @@ public class World {
         construtorHelper();
     }
 
+    /**
+     * Helper method for the constructor, goes through the .csv file containing CO2-Emissions for all countries
+     * and updates the Countries hashmap accordingly.
+     */
     private void construtorHelper() {
         String filename = "CO2-Emissions.csv";
         String line = "";
