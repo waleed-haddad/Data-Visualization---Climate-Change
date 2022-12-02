@@ -1,3 +1,6 @@
+package src;
+
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
@@ -14,7 +17,7 @@ public class MapView extends Event{
     public void initUIComponents(){
         worldMapView = new WorldMapView();
         splitPane = new SplitPane();
-        VBox display = new VBox(new Label("Display Information"));
+        VBox display = new VBox(new Button("Undo"),new Label("Display Information"));
         splitPane.getItems().add(display);
     }
 
