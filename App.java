@@ -47,7 +47,7 @@ public class App extends Application {
 
     /**
      * Function to Start the Visualizer
-     * @param primaryStage : Stage object for tbe view
+     * @param primaryStage : Stage object for the view
      */
     public void start(Stage primaryStage) {
 

@@ -17,7 +17,8 @@ public class MapView extends Event{
     public void initUIComponents(){
         worldMapView = new WorldMapView();
         splitPane = new SplitPane();
-        VBox display = new VBox(new Button("Undo"),new Label("Display Information"));
+        Button undoB = new Button("Undo");
+        VBox display = new VBox(undoB,new Label("Display Information"));
         splitPane.getItems().add(display);
     }
 
