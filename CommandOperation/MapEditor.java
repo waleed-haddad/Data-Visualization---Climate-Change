@@ -22,11 +22,7 @@ public class MapEditor {
     }
 
     public void FilterCountry(WorldMapView.CountryView view, Label countryLabel) {
-        if(view.getFill() == Color.BLUE){
-            view.setFill(Color.LIGHTGREEN);
-        }else{
-            view.setFill(Color.BLUE);
-            ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel);
-        }
+        view.setFill(Color.BLUE);
+        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel);
     }
 }

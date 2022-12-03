@@ -34,9 +34,18 @@ public class CommandHistory {
     /**
      * Remove the specified command in Previous[].
      * @param c, where c is the command to be removed
+     * @return returnC, where returnC is the command that is being removed
      */
-    public void removeCommand (Command c) {
-        Previous.remove(c);
+    public Command removeCommand (Command c) {
+        Command returnC = null;
+        for (Command com : Previous) {
+            if (com.getInfo().getName() == c.getInfo().getName()) {
+                returnC = com;
+                Previous.remove(com);
+                break;
+            }
+        }
+        return returnC;
     }
 
     /**

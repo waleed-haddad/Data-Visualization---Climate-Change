@@ -1,6 +1,5 @@
 package src.CommandOperation;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -17,11 +16,15 @@ public class FilterCommand implements Command{
 
     public WorldMapView.CountryView view1;
 
-    public FilterCommand(Label countryLabel, MapView subject, WorldMapView.CountryView view, MapEditor editor) {
+    public Country country;
+
+    public FilterCommand(Label countryLabel, MapView subject, WorldMapView.CountryView view,
+                         MapEditor editor, Country tempCountry) {
         this.subject = subject;
         this.countryLabel = countryLabel;
         this.view1 = view;
         this.editor = editor;
+        this.country = tempCountry;
     }
 
     @Override
@@ -39,5 +42,14 @@ public class FilterCommand implements Command{
     public void unexecute() {
         ((VBox) subject.splitPane.getItems().get(0)).getChildren().remove(countryLabel);
         view1.setFill(Color.LIGHTGREEN);
+    }
+
+    @Override
+    /**
+     * Getter-method for the command's specific info.
+     * @return Label - the countryLabel which contains the country's name, etc.
+     */
+    public Country getInfo(){
+        return this.country;
     }
 }
