@@ -67,36 +67,18 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
                     }
                 }
                 return helper(mapView, view);
-                /*
-                view.setOnMouseClicked(evt -> {
-                    Country tempCountry = App.world.Countries.get(countryName);
-                    Command tempC = new FilterCommand(new Label(tempCountry.getName() + " : " + tempCountry.getCO2_Emission()),
-                            mapView, view, mapView.editor, tempCountry);
-                    if(tempCountry.selected){
-                        history.removeCommand(tempC).unexecute();
-                        tempCountry.selected = false;
-                        tempCountry.printed = false;
-                    } else {
-                        history.addCommand(tempC);
-                        tempCountry.selected = true;
-                        tempC.execute();
-                    }
-                });
-                view.setOnMouseEntered(evt -> {
-                    view.setOpacity(0.5);
-                });
-                view.setOnMouseExited(evt -> {
-                    view.setOpacity(1);
-                });
-
-                return view;
-                */
 
             });
         }
     }
 
 
+    /**
+     * static helper function to set Country views in the worldMapView. It is made static because the Country views must be reset everytime a change is made to the map
+     * @param mapView - the Mapview object which contains the worldMapView
+     * @param view - the CountryView which is iterated through by setCountryViewFactory
+     * @return WorldMapView.CountryView
+     */
     public static WorldMapView.CountryView helper(MapView mapView, WorldMapView.CountryView view){
         String countryName = view.getCountry().getLocale().getDisplayCountry();
 

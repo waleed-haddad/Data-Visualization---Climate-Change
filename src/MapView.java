@@ -17,7 +17,6 @@ public class MapView extends Event{
     public MapEditor editor;
 
     public MapView(){
-       // initUIComponents();
 
     }
     /**
