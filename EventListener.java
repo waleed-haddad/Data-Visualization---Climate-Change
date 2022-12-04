@@ -1,5 +1,3 @@
-package views;
-
 public interface EventListener {
 
     /**

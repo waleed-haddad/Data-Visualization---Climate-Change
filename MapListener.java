@@ -1,10 +1,9 @@
-package views;
+
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
-import views.MapView;
 
 public class MapListener implements EventListener {
     public boolean observerState;

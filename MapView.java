@@ -1,4 +1,4 @@
-package views;
+
 
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;

@@ -1,5 +1,3 @@
-package views;
-
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
 
