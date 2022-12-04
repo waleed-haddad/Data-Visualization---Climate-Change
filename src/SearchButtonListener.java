@@ -1,3 +1,5 @@
+package src;
+
 import javafx.scene.input.MouseEvent;
 
 public class SearchButtonListener implements EventListener {
