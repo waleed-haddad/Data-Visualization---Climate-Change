@@ -1,5 +1,7 @@
 package src;
 
+import javafx.util.Callback;
+import src.CommandOperation.MapEditor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -9,16 +11,17 @@ import org.controlsfx.control.WorldMapView;
 import src.CommandOperation.Command;
 import src.CommandOperation.CommandHistory;
 import src.CommandOperation.FilterCommand;
-import src.CommandOperation.MapEditor;
+
+import static src.SearchButtonHandler.helper;
 
 public class MapListener implements EventListener{
     public boolean observerState;
     public MapView subject;
     public WorldMapView worldMapView;
 
-    public MapEditor editor;
+    public static CommandHistory history;
 
-    public CommandHistory history;
+    public static Callback mapFunction;
 
     /**
      * Constructor for MapListener
@@ -28,7 +31,6 @@ public class MapListener implements EventListener{
         observerState = false;
         this.subject = subject;
         worldMapView = subject.worldMapView;
-        editor = new MapEditor(subject);
         history = new CommandHistory();
     }
 
@@ -40,9 +42,12 @@ public class MapListener implements EventListener{
         observerState = state;
         if(state){
             //the button used to undo commands
-            ((VBox) subject.splitPane.getItems().get(0)).getChildren().get(0).setOnMouseClicked(evt2 -> {
+            ((VBox) subject.splitPane.getItems().get(0)).getChildren().get(2).setOnMouseClicked(evt2 -> {
                 try {
-                    history.undoCommand().unexecute();
+                    FilterCommand command = (FilterCommand) history.undoCommand();
+                    command.unexecute();
+                    command.country.selected = false;
+                    command.country.printed = false;
                 }
                 catch (IndexOutOfBoundsException e){
                     Alert a = new Alert(Alert.AlertType.NONE, "No Action left to Undo!", ButtonType.CLOSE);
@@ -51,27 +56,8 @@ public class MapListener implements EventListener{
             });
 
             worldMapView.setCountryViewFactory(country -> {
-                WorldMapView.CountryView view = new WorldMapView.CountryView(country);
-                view.setOnMouseClicked(evt -> {
-                    Country tempCountry = new Country(view.getCountry().getLocale().getDisplayCountry(), 0.0);
-                    Command tempC = new FilterCommand(new Label(view.getCountry().getLocale().getDisplayCountry()),
-                            subject, view, editor, tempCountry);
-                    if(view.getFill() == Color.BLUE){
-                        history.removeCommand(tempC).unexecute();
-                    }
-                    else {
-                        history.addCommand(tempC);
-                        tempC.execute();
-                    }
-                });
-                view.setOnMouseEntered(evt -> {
-                    view.setOpacity(0.5);
-                });
-                view.setOnMouseExited(evt -> {
-                    view.setOpacity(1);
-                });
-
-                return view;
+                WorldMapView.CountryView view = new WorldMapView.CountryView((WorldMapView.Country) country);
+                return helper(subject, view);
             });
         }else{
             worldMapView.setCountryViewFactory(country -> {

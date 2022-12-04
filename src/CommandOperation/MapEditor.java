@@ -19,10 +19,14 @@ public class MapEditor {
     public MapEditor(MapView subject){
         this.subject = subject;
         worldMapView = subject.worldMapView;
+
     }
 
-    public void FilterCountry(WorldMapView.CountryView view, Label countryLabel) {
+    public void FilterCountry(WorldMapView.CountryView view) {
         view.setFill(Color.BLUE);
+    }
+
+    public void updateDisplay(Label countryLabel) {
         ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel);
     }
 }
