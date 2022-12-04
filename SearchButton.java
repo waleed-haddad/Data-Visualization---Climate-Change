@@ -1,5 +1,3 @@
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -10,6 +8,10 @@ public class SearchButton extends UIButton {
 
     SearchButtonHandler handler;
 
+    /**
+     * Constructor for SearchButton
+     * @param mapView - The mapview is required in order to process the handler for the button
+     */
     public SearchButton(MapView mapView) {
         this.mapView = mapView;
         textField = new TextField("Search For Country");

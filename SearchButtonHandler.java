@@ -1,22 +1,28 @@
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import org.controlsfx.control.WorldMapView;
 
-import java.util.ListIterator;
 
 public class SearchButtonHandler implements EventHandler<MouseEvent> {
 
     public SearchButton subject;
     public MapView mapView;
 
+    /**
+     * Constructor for SearchButtonHandler
+     * @param subject - SearchButton object
+     * @param mapView - MapView object, necessary in order to make changes to the display
+     */
     public SearchButtonHandler(SearchButton subject, MapView mapView){
         this.subject = subject;
         this.mapView = mapView;
     }
+
+    /**
+     * Handler function for SearchButton
+     * @param mouseEvent - Handles function on certain mouse function.
+     */
     @Override
     public void handle(MouseEvent mouseEvent) {
         String input = subject.textField.getText();
