@@ -1,3 +1,5 @@
+package src;
+
 import javafx.scene.control.Button;
 
 public abstract class UIButton extends Event{

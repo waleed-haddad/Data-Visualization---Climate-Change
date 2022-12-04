@@ -1,11 +1,10 @@
+package src;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * A World class. The World class contains a Hashmap of Countries.
@@ -30,7 +29,7 @@ public class World {
      * and updates the Countries hashmap accordingly.
      */
     private void constructorHelper() {
-        String filename = "CO2-Emissions.csv";
+        String filename = "src/CO2-Emissions.csv";
         String line = "";
         String[] tempArr;
         try {
