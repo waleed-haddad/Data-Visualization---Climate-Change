@@ -70,6 +70,7 @@ public class MapListener implements EventListener{
                 view.setOnMouseExited(evt -> {
                     view.setOpacity(1);
                 });
+
                 return view;
             });
         }else{

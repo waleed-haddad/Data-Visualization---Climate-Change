@@ -15,8 +15,12 @@ import org.controlsfx.control.WorldMapView;
 
 public class App extends Application {
     MapView map = new MapView();
+    SearchButton searchButton = new SearchButton(map);
     WorldMapView worldMapView;
     SplitPane splitPane;
+
+    public static World world = new World();
+
 
     /**
      * Main method to launch the application
@@ -38,6 +42,10 @@ public class App extends Application {
         MapListener mapListener = new MapListener(map);
         map.register(mapListener);
         map.notifyObserver(mapListener);
+        searchButton.setState(true);
+        SearchButtonListener searchButtonListener = new SearchButtonListener(searchButton);
+        searchButton.register(searchButtonListener);
+        searchButton.notifyObserver(searchButtonListener);
         StackPane stackPane = new StackPane();
         StackPane.setAlignment(worldMapView, Pos.CENTER);
         stackPane.getChildren().add(worldMapView);
