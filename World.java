@@ -1,4 +1,3 @@
-package src;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,14 +22,14 @@ public class World {
      */
     public World() {
         Countries = new HashMap<>();
-        construtorHelper();
+        constructorHelper();
     }
 
     /**
      * Helper method for the constructor, goes through the .csv file containing CO2-Emissions for all countries
      * and updates the Countries hashmap accordingly.
      */
-    private void construtorHelper() {
+    private void constructorHelper() {
         String filename = "CO2-Emissions.csv";
         String line = "";
         String[] tempArr;

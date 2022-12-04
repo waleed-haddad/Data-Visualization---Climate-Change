@@ -1,3 +1,4 @@
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,7 +32,9 @@ public class MapListener implements EventListener{
                         view.setFill(Color.LIGHTGREEN);
                     }else{
                         view.setFill(Color.BLUE);
-                        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(new Label(view.getCountry().getLocale().getDisplayCountry()));
+                        String display = view.getCountry().getLocale().getDisplayCountry();
+                        display += " : " + App.world.Countries.get(display).getCO2_Emission();
+                        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(new Label(display));
                     }
                 });
                 view.setOnMouseEntered(evt -> {
@@ -40,6 +43,7 @@ public class MapListener implements EventListener{
                 view.setOnMouseExited(evt -> {
                     view.setOpacity(1);
                 });
+
                 return view;
             });
         }else{
