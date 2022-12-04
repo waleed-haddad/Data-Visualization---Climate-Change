@@ -1,3 +1,6 @@
+package src;
+
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
@@ -20,8 +23,9 @@ public class MapView extends Event{
     public void initUIComponents(){
         worldMapView = new WorldMapView();
         splitPane = new SplitPane();
+        Button undoB = new Button("Undo");
         searchButton = new SearchButton(this);
-        VBox display = new VBox(searchButton.textField, searchButton.button, new Label("Display Information"));
+        VBox display = new VBox(searchButton.textField, searchButton.button, undoB, new Label("Display Information"));
         splitPane.getItems().add(display);
     }
 

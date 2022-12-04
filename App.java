@@ -1,3 +1,5 @@
+package src;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -9,7 +11,6 @@ import javafx.scene.layout.*;
 
 import javafx.stage.Stage;
 import org.controlsfx.control.WorldMapView;
-
 
 
 public class App extends Application {
@@ -54,7 +55,7 @@ public class App extends Application {
 
     /**
      * Function to Start the Visualizer
-     * @param primaryStage : Stage object for tbe view
+     * @param primaryStage : Stage object for the view
      */
     public void start(Stage primaryStage) {
 
