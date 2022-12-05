@@ -7,11 +7,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
 import src.CommandOperation.Command;
 import src.CommandOperation.FilterCommand;
 import src.CommandOperation.MapEditor;
 
+import java.util.Map;
 import java.util.Objects;
 
 import static src.MapListener.history;
@@ -97,6 +99,16 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
         }else if(countryName.equals("Congo - Kinshasa")){
             countryName = "Congo";
         }
+        if (App.world.Countries.containsKey(countryName)) {
+            Country countryTest = App.world.Countries.get(countryName);
+            if(!countryTest.getSelected()){
+                view.setFill(countryTest.getColor());
+            }
+            System.out.println(countryTest.getColor());
+        }else{
+            view.setFill(Color.rgb(51, 255, 174));
+        }
+        
         String finalCountry = countryName;
         view.setOnMouseClicked(evt -> {
             Country tempCountry = App.world.Countries.get(finalCountry);
