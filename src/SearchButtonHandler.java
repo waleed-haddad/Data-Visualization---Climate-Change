@@ -39,17 +39,27 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent mouseEvent) {
         String input = subject.textField.getText();
+        if(input.equals("Russia")){
+            input = "Russian Federation";
+        }else if(input.equals("Congo - Kinshasa")){
+            input = "Congo";
+        }
         if(!App.world.Countries.containsKey(input)){
             Alert a = new Alert(Alert.AlertType.NONE, "Country not Found!", ButtonType.CLOSE);
             a.show();
         }else{
             Country countryVal = App.world.Countries.get(input);
+            System.out.println(countryVal.getName());
             countryVal.selected = true;
 
             mapView.worldMapView.setCountryViewFactory(country -> {
                 WorldMapView.CountryView view = new WorldMapView.CountryView((WorldMapView.Country) country);
                 String countryName = view.getCountry().getLocale().getDisplayCountry();
-
+                if(countryName.equals("Russia")){
+                    countryName = "Russian Federation";
+                }else if(countryName.equals("Congo - Kinshasa")){
+                    countryName = "Congo";
+                }
                 if(App.world.Countries.containsKey(countryName)) {
                     Country tempCountry = App.world.Countries.get(countryName);
                     Command tempC = new FilterCommand(new Label(tempCountry.getName() + " : " + tempCountry.getCO2_Emission()),
@@ -81,9 +91,14 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
      */
     public static WorldMapView.CountryView helper(MapView mapView, WorldMapView.CountryView view){
         String countryName = view.getCountry().getLocale().getDisplayCountry();
-
+        if(countryName.equals("Russia")){
+            countryName = "Russian Federation";
+        }else if(countryName.equals("Congo - Kinshasa")){
+            countryName = "Congo";
+        }
+        String finalCountry = countryName;
         view.setOnMouseClicked(evt -> {
-            Country tempCountry = App.world.Countries.get(countryName);
+            Country tempCountry = App.world.Countries.get(finalCountry);
             Command tempC = new FilterCommand(new Label(tempCountry.getName() + " : " + tempCountry.getCO2_Emission()),
                     mapView, view, mapView.editor, tempCountry);
             if(tempCountry.selected){
