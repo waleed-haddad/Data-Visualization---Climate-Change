@@ -8,13 +8,18 @@ import javafx.scene.layout.VBox;
 import org.controlsfx.control.WorldMapView;
 import javafx.scene.control.Button;
 
+import src.CommandOperation.MapEditor;
+
 
 public class MapView extends Event{
     public WorldMapView worldMapView;
     public SplitPane splitPane;
     public SearchButton searchButton;
+
+    public MapEditor editor;
+
     public MapView(){
-       // initUIComponents();
+
     }
     /**
      * Function to initialize UI components of MapView to enable for testing.
@@ -27,6 +32,7 @@ public class MapView extends Event{
         searchButton = new SearchButton(this);
         VBox display = new VBox(searchButton.textField, searchButton.button, undoB, new Label("Display Information"));
         splitPane.getItems().add(display);
+        editor = new MapEditor(this);
     }
 
 }

@@ -13,3 +13,4 @@ public interface CountryIterator {
 
     public void reset();
 }
+

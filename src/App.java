@@ -12,6 +12,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.controlsfx.control.WorldMapView;
 
+
 public class App extends Application {
     MapView map = new MapView();
     SearchButton searchButton = new SearchButton(map);

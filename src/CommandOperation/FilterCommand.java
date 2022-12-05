@@ -32,7 +32,12 @@ public class FilterCommand implements Command{
      * Implements the filter command as based on specifications.
      */
     public void execute() {
-        editor.FilterCountry(view1, countryLabel);
+
+        editor.FilterCountry(view1);
+        if(!country.printed){
+            editor.updateDisplay(countryLabel);
+            country.printed = true;
+        }
     }
 
     /**

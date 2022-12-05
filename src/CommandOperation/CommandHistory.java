@@ -1,6 +1,11 @@
 package src.CommandOperation;
 
 import java.util.ArrayList;
+import src.Country;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 /**
  * The CommandHistory class acts as the Iterable class to store
@@ -8,6 +13,7 @@ import java.util.ArrayList;
  */
 public class CommandHistory {
     private ArrayList<Command> Previous;
+
 
     public CommandHistory() {
         Previous = new ArrayList<Command>();
@@ -56,5 +62,13 @@ public class CommandHistory {
         for (Command c: Previous){
             System.out.println(c);
         }
+    }
+
+    public HashMap<String, Command> getCommandHashMap () {
+        HashMap<String, Command> result = new HashMap<>();
+        for (Command c: Previous){
+            result.put(c.getInfo().getName(), c);
+        }
+        return result;
     }
 }

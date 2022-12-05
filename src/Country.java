@@ -1,6 +1,7 @@
 package src;
 
 import java.awt.*;
+
 import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,6 +14,7 @@ import java.io.FileNotFoundException;
  *  - A Country has a color representing the range its CO2 emissions lie in relation to the emissions of other countries
  *  - A Country has a boolean value is_selected which indicates whether it should be highlighted on a map
  *  - A Country has a rank indicating its placement on a sorted list containing every county and their CO2 emissions
+
  */
 
 public class Country{
@@ -25,9 +27,11 @@ public class Country{
 
     public Color color;
 
-    public boolean is_selected;
-
     public int rank;
+    public boolean selected;
+
+    public boolean printed;
+
 
     /**
      * Create a Country with the given CO2_Emission level.
@@ -40,7 +44,8 @@ public class Country{
          this.CO2_Emission = CO2_Emission;
          this.Continent = CountryToContinent(this.Name);
          this.color = Color.green;
-         this.is_selected = false;
+         this.selected = false;
+         this.printed = false;
      }
 
 
@@ -69,6 +74,7 @@ public class Country{
                     catch (IndexOutOfBoundsException e){
                         result = "N/A";
                     }
+
                 }
             }
         } catch (FileNotFoundException e) {
@@ -124,14 +130,14 @@ public class Country{
      * @return boolean value representing whether the country was selected or not.
      */
     public boolean getSelected() {
-        return this.is_selected;
+        return this.selected;
     }
 
     /**
      * Setter for is_selected.
      */
     public void setSelected(boolean selection) {
-        this.is_selected = selection;
+        this.selected = selection;
     }
 
     /**

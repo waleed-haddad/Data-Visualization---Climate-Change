@@ -1,6 +1,7 @@
 package src;
 
 import java.awt.*;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -25,6 +26,7 @@ public class World {
         constructorHelper();
         this.setColors();
         this.setRank();
+
     }
 
     /**
@@ -95,5 +97,6 @@ public class World {
             rank++;
         }
     }
+
 
 }
