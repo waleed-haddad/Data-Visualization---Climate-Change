@@ -1,3 +1,8 @@
 public interface DefaultView {
-    public void updateDisplay();
+    /**
+     * Update the display according the filter the user picks
+     *
+     * @return
+     */
+    public MapView updateDisplay();
 }
