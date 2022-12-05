@@ -1,6 +1,7 @@
 package src;
 
-import java.awt.*;
+
+import javafx.scene.paint.Color;
 
 import java.io.*;
 import java.io.BufferedReader;
@@ -43,7 +44,7 @@ public class Country{
          this.Name = Name;
          this.CO2_Emission = CO2_Emission;
          this.Continent = CountryToContinent(this.Name);
-         this.color = Color.green;
+         this.color = Color.LIGHTGREEN;
          this.selected = false;
          this.printed = false;
      }

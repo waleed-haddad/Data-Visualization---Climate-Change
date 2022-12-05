@@ -15,6 +15,8 @@ import src.CommandOperation.FilterCommand;
 import src.CommandOperation.MapEditor;
 
 
+import java.util.Map;
+
 import static src.SearchButtonHandler.helper;
 
 public class MapListener implements EventListener{
@@ -65,6 +67,17 @@ public class MapListener implements EventListener{
             worldMapView.setCountryViewFactory(country -> {
 
                 WorldMapView.CountryView view = new WorldMapView.CountryView((WorldMapView.Country) country);
+                String countryName = view.getCountry().getLocale().getDisplayName();
+                for (Map.Entry<String, Country> country2 : App.world.Countries.entrySet()) {
+                    System.out.println(country2.getValue().getSelected());
+                }
+                if (App.world.Countries.containsKey(countryName)) {
+                    Country countryTest = App.world.Countries.get(countryName);
+                    view.setFill(countryTest.getColor());
+                    System.out.println(countryTest.getColor());
+                }else{
+                    view.setFill(Color.rgb(51, 204, 255));
+                }
                 return helper(subject, view);
             });
         }else{

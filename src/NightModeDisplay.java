@@ -1,7 +1,19 @@
+package src;
+
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
+import src.CommandOperation.CommandHistory;
+import src.CommandOperation.MapEditor;
 
-public class NightModeDisplay implements DefaultView{
+import java.util.Map;
+
+public class NightModeDisplay implements DefaultView {
     public final MapView display;
     public final MapEditor editor;
     public final CommandHistory history;

@@ -46,7 +46,7 @@ public class FilterCommand implements Command{
     @Override
     public void unexecute() {
         ((VBox) subject.splitPane.getItems().get(0)).getChildren().remove(countryLabel);
-        view1.setFill(Color.LIGHTGREEN);
+        view1.setFill(country.getColor());
     }
 
     @Override

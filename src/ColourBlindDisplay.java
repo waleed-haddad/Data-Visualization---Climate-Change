@@ -1,7 +1,11 @@
+package src;
+
 import java.util.*;
 
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
+import src.CommandOperation.CommandHistory;
+import src.CommandOperation.MapEditor;
 
 public class ColourBlindDisplay implements DefaultView {
     public final MapView display;
