@@ -4,6 +4,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import org.controlsfx.control.WorldMapView;
+import src.App;
+import src.Country;
 import src.MapView;
 
 /**
@@ -19,12 +21,11 @@ public class MapEditor {
     public MapEditor(MapView subject){
         this.subject = subject;
         worldMapView = subject.worldMapView;
-
     }
 
     public void FilterCountry(WorldMapView.CountryView view) {
         view.setFill(Color.BLUE);
-    }
+   }
 
     public void updateDisplay(Label countryLabel) {
         ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel);

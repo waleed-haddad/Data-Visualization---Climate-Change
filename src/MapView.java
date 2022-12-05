@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.controlsfx.control.WorldMapView;
 import javafx.scene.control.Button;
+
 import src.CommandOperation.MapEditor;
 
 
@@ -14,6 +15,7 @@ public class MapView extends Event{
     public WorldMapView worldMapView;
     public SplitPane splitPane;
     public SearchButton searchButton;
+
     public MapEditor editor;
 
     public MapView(){

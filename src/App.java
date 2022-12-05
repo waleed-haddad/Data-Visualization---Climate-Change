@@ -9,8 +9,11 @@ import javafx.scene.control.*;
 
 import javafx.scene.layout.*;
 
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.control.WorldMapView;
+
+import static src.SearchButtonHandler.helper;
 
 
 public class App extends Application {
@@ -38,6 +41,8 @@ public class App extends Application {
         map.initUIComponents();
         worldMapView = map.worldMapView;
         splitPane = map.splitPane;
+//        NightModeDisplay dl = new NightModeDisplay(map);
+//        map = dl.updateDisplay();
         map.setState(true);
         MapListener mapListener = new MapListener(map);
         map.register(mapListener);
