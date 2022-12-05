@@ -28,15 +28,15 @@ public class NightModeDisplay implements DefaultView {
 
     public MapView updateDisplay() {
         for (Map.Entry<String, Country> country : App.world.Countries.entrySet()) {
-            if (country.getValue().color.equals(Color.rgb(51, 204, 255)) || country.getValue().color.equals(Color.rgb(229, 204, 255))) {
+            if (country.getValue().color.equals(Color.rgb(51, 255, 174)) || country.getValue().color.equals(Color.rgb(229, 204, 255))) {
                 country.getValue().color = Color.rgb(180, 180, 200);
-            } else if (country.getValue().color.equals(Color.rgb(51, 153, 255)) || country.getValue().color.equals(Color.rgb(204, 153, 255))) {
+            } else if (country.getValue().color.equals(Color.rgb(51, 255, 103)) || country.getValue().color.equals(Color.rgb(204, 153, 255))) {
                 country.getValue().color = Color.rgb(160, 160, 160);
-            } else if (country.getValue().color.equals(Color.rgb(0, 0, 255)) || country.getValue().color.equals(Color.rgb(178, 114, 255))) {
+            } else if (country.getValue().color.equals(Color.rgb(0, 255, 0)) || country.getValue().color.equals(Color.rgb(178, 114, 255))) {
                 country.getValue().color = Color.rgb(100, 100, 100);
-            } else if (country.getValue().color.equals(Color.rgb(0, 0, 204)) || country.getValue().color.equals(Color.rgb(153, 51, 255))) {
+            } else if (country.getValue().color.equals(Color.rgb(0, 204, 0)) || country.getValue().color.equals(Color.rgb(153, 51, 255))) {
                 country.getValue().color = Color.rgb(64, 64, 64);
-            } else if (country.getValue().color.equals(Color.rgb(0, 0, 153)) || country.getValue().color.equals(Color.rgb(127, 0, 255))) {
+            } else if (country.getValue().color.equals(Color.rgb(0, 153, 0)) || country.getValue().color.equals(Color.rgb(127, 0, 255))) {
                 country.getValue().color = Color.rgb(0, 0, 6);
             }
         }
