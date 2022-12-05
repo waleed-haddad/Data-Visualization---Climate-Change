@@ -1,5 +1,7 @@
 package src;
 
+import java.awt.*;
+
 import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,6 +11,10 @@ import java.io.FileNotFoundException;
  *  - A Country has a name, unique to the country.
  *  - A Country has a respective continent to which it belongs.
  *  - A Country has CO2 emissions in kilotons.
+ *  - A Country has a color representing the range its CO2 emissions lie in relation to the emissions of other countries
+ *  - A Country has a boolean value is_selected which indicates whether it should be highlighted on a map
+ *  - A Country has a rank indicating its placement on a sorted list containing every county and their CO2 emissions
+
  */
 
 public class Country{
@@ -17,11 +23,15 @@ public class Country{
 
     public String Continent;
 
+    private double CO2_Emission;
+
+    public Color color;
+
+    public int rank;
     public boolean selected;
 
     public boolean printed;
 
-    private double CO2_Emission;
 
     /**
      * Create a Country with the given CO2_Emission level.
@@ -33,6 +43,7 @@ public class Country{
          this.Name = Name;
          this.CO2_Emission = CO2_Emission;
          this.Continent = CountryToContinent(this.Name);
+         this.color = Color.green;
          this.selected = false;
          this.printed = false;
      }
@@ -81,13 +92,16 @@ public class Country{
     public double getCO2_Emission() {
         return this.CO2_Emission;
     }
+
     /**
      * Get the country's name.
      * @return the value, in String representation, of the country's name.
      */
+
     public String getName() {
         return Name;
     }
+
     /**
      * Get the country's respective continent.
      * @return the value, in String representation, of the country's respective continent.
@@ -95,5 +109,46 @@ public class Country{
     public String getContinent() {
         return Continent;
     }
+
+    /**
+     * Get the country's respective color.
+     * @return Color object representing the country's current color.
+     */
+    public Color getColor() {
+        return this.color;
+    }
+
+    /**
+     * Set the country's respective color.
+     */
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    /**
+     * Getter for is_selected.
+     * @return boolean value representing whether the country was selected or not.
+     */
+    public boolean getSelected() {
+        return this.selected;
+    }
+
+    /**
+     * Setter for is_selected.
+     */
+    public void setSelected(boolean selection) {
+        this.selected = selection;
+    }
+
+    /**
+     * Get the country's ranking in the list of all countries and their CO2 emissions.
+     * @return integer value representing the country's rank in the aforementioned list
+     */
+    public int getRank() { return this.rank; }
+
+    /**
+     * Set the country's ranking in the list of all countries and their CO2 emissions.
+     */
+    public void setRank(int rank) { this.rank = rank; }
 
 }

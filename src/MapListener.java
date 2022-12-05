@@ -2,6 +2,7 @@ package src;
 
 import javafx.util.Callback;
 import src.CommandOperation.MapEditor;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -11,6 +12,8 @@ import org.controlsfx.control.WorldMapView;
 import src.CommandOperation.Command;
 import src.CommandOperation.CommandHistory;
 import src.CommandOperation.FilterCommand;
+import src.CommandOperation.MapEditor;
+
 
 import static src.SearchButtonHandler.helper;
 
@@ -18,6 +21,8 @@ public class MapListener implements EventListener{
     public boolean observerState;
     public MapView subject;
     public WorldMapView worldMapView;
+
+    public MapEditor editor;
 
     public static CommandHistory history;
 
@@ -31,6 +36,7 @@ public class MapListener implements EventListener{
         observerState = false;
         this.subject = subject;
         worldMapView = subject.worldMapView;
+        editor = new MapEditor(subject);
         history = new CommandHistory();
     }
 
@@ -42,6 +48,7 @@ public class MapListener implements EventListener{
         observerState = state;
         if(state){
             //the button used to undo commands
+
             ((VBox) subject.splitPane.getItems().get(0)).getChildren().get(2).setOnMouseClicked(evt2 -> {
                 try {
                     FilterCommand command = (FilterCommand) history.undoCommand();
@@ -56,6 +63,7 @@ public class MapListener implements EventListener{
             });
 
             worldMapView.setCountryViewFactory(country -> {
+
                 WorldMapView.CountryView view = new WorldMapView.CountryView((WorldMapView.Country) country);
                 return helper(subject, view);
             });

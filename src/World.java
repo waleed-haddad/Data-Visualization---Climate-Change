@@ -1,5 +1,7 @@
 package src;
 
+import java.awt.*;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -22,6 +24,9 @@ public class World {
     public World() {
         Countries = new HashMap<>();
         constructorHelper();
+        this.setColors();
+        this.setRank();
+
     }
 
     /**
@@ -58,5 +63,40 @@ public class World {
             throw new RuntimeException(e);
         }
     }
+
+    public void setColors() {
+        CountryIteratorBasic basicIterator = new CountryIteratorBasic(this);
+
+        Color range1Color = new Color(51, 204, 255);
+        Color range2Color = new Color(51, 153, 255);
+        Color range3Color = new Color(0, 0, 255);
+        Color range4Color = new Color(0, 0, 204);
+        Color range5Color = new Color(0, 0, 153);
+
+        Country currCountry;
+
+        while(basicIterator.hasNext()){
+            currCountry = basicIterator.getNext();
+            if(currCountry.getCO2_Emission() < 2.29) currCountry.setColor(range1Color);
+            if(currCountry.getCO2_Emission() < 5.35) currCountry.setColor(range2Color);
+            if(currCountry.getCO2_Emission() < 9.02) currCountry.setColor(range3Color);
+            if(currCountry.getCO2_Emission() < 15.0) currCountry.setColor(range4Color);
+            if(currCountry.getCO2_Emission() > 15.0) currCountry.setColor(range5Color);
+            currCountry.setSelected(true);
+        }
+    }
+
+    public void setRank() {
+        CarbonIterator carbonIterationImpl = new CarbonIterator(this);
+        Country currCarbonCountry;
+
+        int rank = 0;
+        while(carbonIterationImpl.hasNext()){
+            currCarbonCountry = carbonIterationImpl.getNext();
+            currCarbonCountry.setRank(rank);
+            rank++;
+        }
+    }
+
 
 }

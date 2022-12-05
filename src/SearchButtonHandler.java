@@ -1,6 +1,7 @@
 package src;
 
 import javafx.event.EventHandler;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -39,6 +40,7 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent mouseEvent) {
         String input = subject.textField.getText();
+
         if(!App.world.Countries.containsKey(input)){
             Alert a = new Alert(Alert.AlertType.NONE, "Country not Found!", ButtonType.CLOSE);
             a.show();

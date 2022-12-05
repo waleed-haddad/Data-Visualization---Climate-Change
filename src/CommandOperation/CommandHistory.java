@@ -1,16 +1,19 @@
 package src.CommandOperation;
 
+import java.util.ArrayList;
 import src.Country;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 /**
  * The CommandHistory class acts as the Iterable class to store
  * commands.
  */
 public class CommandHistory {
-    public ArrayList<Command> Previous;
+    private ArrayList<Command> Previous;
+
 
     public CommandHistory() {
         Previous = new ArrayList<Command>();

@@ -32,6 +32,7 @@ public class FilterCommand implements Command{
      * Implements the filter command as based on specifications.
      */
     public void execute() {
+
         editor.FilterCountry(view1);
         if(!country.printed){
             editor.updateDisplay(countryLabel);
@@ -45,7 +46,6 @@ public class FilterCommand implements Command{
     @Override
     public void unexecute() {
         ((VBox) subject.splitPane.getItems().get(0)).getChildren().remove(countryLabel);
-        System.out.println(view1.getName());
         view1.setFill(Color.LIGHTGREEN);
     }
 
