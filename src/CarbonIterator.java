@@ -43,7 +43,7 @@ public class CarbonIterator implements CountryIterator {
         for(Country country: this.countries.Countries.values()){
             carbonList.add(country.getCO2_Emission());
         }
-        Collections.sort(carbonList);
+        Collections.sort(carbonList, Collections.reverseOrder());
         for(double emission: carbonList){
             for(Country country: this.countries.Countries.values()){
                 if(country.getCO2_Emission() == emission && !this.countedCountryList.contains(country)){
@@ -83,5 +83,7 @@ public class CarbonIterator implements CountryIterator {
     @Override
     public void reset() {
         currentPosition = 0;
+        sortedCountryList.clear();
+        countedCountryList.clear();
     }
 }
