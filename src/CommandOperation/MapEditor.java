@@ -28,6 +28,6 @@ public class MapEditor {
    }
 
     public void updateDisplay(Label countryLabel) {
-        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel);
+        ((VBox) subject.splitPane.getItems().get(0)).getChildren().add(countryLabel );
     }
 }
