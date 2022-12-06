@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SearchButtonTest {
 
     /**
-     * Must comment out UI components in order ruin tests
+     * Must comment out UI components in order run tests
      */
     @Test
     void RegisteringEventListenersTest() {

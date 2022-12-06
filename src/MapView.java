@@ -17,6 +17,8 @@ public class MapView extends Event{
     public SearchButton searchButton;
     public UndoButton undoButton;
 
+    public AccessibilityButton accessibilityButton;
+
     public MapEditor editor;
 
     public MapView(){
@@ -31,8 +33,9 @@ public class MapView extends Event{
         splitPane = new SplitPane();
         Button undoB = new Button("Undo");
         searchButton = new SearchButton(this);
+        accessibilityButton = new AccessibilityButton(this);
         undoButton = new UndoButton(this);
-        VBox display = new VBox(searchButton.textField, searchButton.button, undoButton.button, new Label("Display Information"));
+        VBox display = new VBox(searchButton.textField, searchButton.button, undoButton.button, accessibilityButton.defaultView, accessibilityButton.colourBlind, accessibilityButton.nightMode, new Label("Display Information"));
         splitPane.getItems().add(display);
         editor = new MapEditor(this);
     }
