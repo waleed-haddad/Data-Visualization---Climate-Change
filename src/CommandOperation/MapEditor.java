@@ -24,7 +24,7 @@ public class MapEditor {
     }
 
     public void FilterCountry(WorldMapView.CountryView view) {
-        view.setFill(Color.BLUE);
+        view.setFill(Color.DARKBLUE);
    }
 
     public void updateDisplay(Label countryLabel) {

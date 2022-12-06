@@ -15,15 +15,9 @@ import java.util.Map;
 
 public class NightModeDisplay implements DefaultView {
     public final MapView display;
-    public final MapEditor editor;
-    public final CommandHistory history;
-    public final WorldMapView worldMapView;
 
     public NightModeDisplay(MapView view) {
         this.display = view;
-        this.worldMapView = view.worldMapView;
-        this.editor = new MapEditor(view);
-        this.history = new CommandHistory();
     }
 
     public MapView updateDisplay() {
@@ -37,10 +31,9 @@ public class NightModeDisplay implements DefaultView {
             } else if (country.getValue().color.equals(Color.rgb(0, 204, 0)) || country.getValue().color.equals(Color.rgb(153, 51, 255))) {
                 country.getValue().color = Color.rgb(64, 64, 64);
             } else if (country.getValue().color.equals(Color.rgb(0, 153, 0)) || country.getValue().color.equals(Color.rgb(127, 0, 255))) {
-                country.getValue().color = Color.rgb(0, 0, 6);
+                country.getValue().color = Color.rgb(35, 35, 35);
             }
         }
-        display.initUIComponents();
         VBox dis = (VBox) display.splitPane.getItems().get(0);
         dis.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < dis.getChildren().size(); i++) {

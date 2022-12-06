@@ -23,6 +23,8 @@ public class App extends Application {
     WorldMapView worldMapView;
     SplitPane splitPane;
 
+    UndoButton undoButton = new UndoButton(map);
+
     public static World world = new World();
 
 
@@ -51,6 +53,11 @@ public class App extends Application {
         accessibilityButton.setState(true);
         accessibilityButton.register(accessibilityButtonListener);
         accessibilityButton.notifyObserver(accessibilityButtonListener);
+        undoButton.setState(true);
+        UndoButtonListener undoButtonListener = new UndoButtonListener(undoButton, map);
+        undoButton.register(undoButtonListener);
+        undoButton.notifyObserver(undoButtonListener);
+
         searchButton.setState(true);
         SearchButtonListener searchButtonListener = new SearchButtonListener(searchButton);
         searchButton.register(searchButtonListener);
