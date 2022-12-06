@@ -19,6 +19,7 @@ import static src.SearchButtonHandler.helper;
 public class App extends Application {
     MapView map = new MapView();
     SearchButton searchButton = new SearchButton(map);
+    AccessibilityButton accessibilityButton = new AccessibilityButton(map);
     WorldMapView worldMapView;
     SplitPane splitPane;
 
@@ -41,12 +42,15 @@ public class App extends Application {
         map.initUIComponents();
         worldMapView = map.worldMapView;
         splitPane = map.splitPane;
-//        NightModeDisplay dl = new NightModeDisplay(map);
-//        map = dl.updateDisplay();
         map.setState(true);
         MapListener mapListener = new MapListener(map);
         map.register(mapListener);
         map.notifyObserver(mapListener);
+        accessibilityButton.setState(true);
+        AccessibilityButtonListener accessibilityButtonListener = new AccessibilityButtonListener(accessibilityButton, map);
+        accessibilityButton.setState(true);
+        accessibilityButton.register(accessibilityButtonListener);
+        accessibilityButton.notifyObserver(accessibilityButtonListener);
         searchButton.setState(true);
         SearchButtonListener searchButtonListener = new SearchButtonListener(searchButton);
         searchButton.register(searchButtonListener);

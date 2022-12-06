@@ -103,10 +103,15 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
             Country countryTest = App.world.Countries.get(countryName);
             if(!countryTest.getSelected()){
                 view.setFill(countryTest.getColor());
+            }else{
+                if(history.getCommandHashMap().containsKey(countryName)){
+                    FilterCommand c = ((FilterCommand) history.getCommandHashMap().get(countryName));
+                    c.view1 = view;
+                    c.execute();
+                }
             }
-            System.out.println(countryTest.getColor());
         }else{
-            view.setFill(Color.rgb(51, 255, 174));
+            view.setFill(Color.WHITE);
         }
         
         String finalCountry = countryName;
