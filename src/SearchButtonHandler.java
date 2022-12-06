@@ -109,6 +109,7 @@ public class SearchButtonHandler implements EventHandler<MouseEvent> {
             view.setFill(Color.WHITE);
         }
 
+
         String finalCountry = countryName;
         view.setOnMouseClicked(evt -> {
             Country tempCountry = App.world.Countries.get(finalCountry);
