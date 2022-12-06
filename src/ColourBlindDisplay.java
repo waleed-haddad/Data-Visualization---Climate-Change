@@ -9,14 +9,8 @@ import src.CommandOperation.MapEditor;
 
 public class ColourBlindDisplay implements DefaultView {
     public final MapView display;
-    public final MapEditor editor;
-    public final CommandHistory history;
-    public final WorldMapView worldMapView;
     public ColourBlindDisplay(MapView view) {
         this.display = view;
-        this.worldMapView = view.worldMapView;
-        this.editor = new MapEditor(view);
-        this.history = new CommandHistory();
     }
     public MapView updateDisplay() {
         for (Map.Entry<String, Country> country : App.world.Countries.entrySet()) {
