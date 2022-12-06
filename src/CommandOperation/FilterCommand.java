@@ -32,9 +32,9 @@ public class FilterCommand implements Command{
      * Implements the filter command as based on specifications.
      */
     public void execute() {
-
         editor.FilterCountry(view1);
         if(!country.printed){
+            countryLabel.setText(countryLabel.getText() + ". Rank: " + country.getRank());
             editor.updateDisplay(countryLabel);
             country.printed = true;
         }
