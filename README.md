@@ -18,13 +18,6 @@ For this project, the group decided to create a Data Visualizer that will displa
 This project is inspired by the Urban Tree Data Visualizer Project, but expanded to the scope of the whole world and enables the user to select/search a country and display its according data, along with visual accessibility features.
 
 SECTION 2: PROCESS DOCUMENTATION
-Between Phase 1 and Phase 2, there should be time to conduct 2 complete Sprints at approximately weekly intervals and a 3rd short Sprint which will likely be dedicated to code integration, testing, and reporting. Make a separate section in your report to document each Sprint.  Your team’s documentation for every Sprint will look similar and consist of:
- A sprint overview. This should detail 1) the start and end date for the sprint; 2) the sprint goal; 3) the user stories (and associated tasks) selected for this sprint; 4) a current assessment of team capacity (i.e. how much you expect to complete); 5) participants in the sprint process (i.e. who is assigned to do what); and 5) a breakdown of tasks already completed. Please keep each overview you write under 750 words.
-A product backlog, to reflect in detail the assignment of user stories to team members and/or the inclusion of new user stories.
-Documentation of code reviews.  Each team member should provide references to a code review that they completed for their teammate at each sprint iteration.
-A sprint retrospective, which will document what went well during a sprint and and needs for change.
-
-A suggested template for each of these sections are provided below.
 
 2.1. SPRINT 1 OVERVIEW
 
@@ -200,10 +193,6 @@ Through this sprint, the group was able to complete an interactive world map whi
 
 
 SECTION 3: SUMMARY
-
-In this final section, briefly summarize both your project accomplishments and its limitations.  
-
-If your design had to change in some unexpected way, explain what had to be changed.  It’s ok if your final project does not look quite as you thought it might or if you never got to some user stories. It’s also ok if you chose to focus on different features and patterns than you initially thought you might. To help us understand any discrepancy between your initial proposal and your final product, tell us the changes you had to make and why.
 
 Upon completing the project, the group was extremely content with the final product as the initial general functionality and vision for the project was realized. The team had effectively created an interactive world map which displayed all countries with their various carbon emissions per capita in different colours (under set emissions ranges). A search feature was also implemented, allowing users to search for a specific country by its name, which would then display data for that specific country on the screen. These UI features were integrated with the Observer pattern as originally planned. An additional feature was added where a rank for each country was also displayed; this rank indicated its standing of how great its carbon emissions are compared to the rest of the world. The ranking and colouring of each country heavily utilized the Iterator pattern to loop through each country and assign colours/ranks as originally planned. Moreover, the process of being able to select and unselect countries was handled by the Command pattern. Accessibility features were handled by the Strategy pattern; users can view the world map in a colour-blind mode and night mode on top of the default mode, as was originally planned. Overall, all design patterns were utilized effectively to create the general functionality of the project and implement a handful of side features initially planned for the data visualizer. 
 
